@@ -12,7 +12,7 @@ export function AlertMarker({ alert, onClick }: Props) {
       position={alert.position}
       onClick={onClick}
       icon={{
-        url: "https://maps.google.com/mapfiles/ms/icons/yellow.png",
+        url: "https://cdn-icons-png.flaticon.com/512/1828/1828843.png",
         scaledSize: new window.google.maps.Size(40, 40),
       }}
     />

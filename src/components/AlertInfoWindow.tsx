@@ -9,13 +9,15 @@ type AlertInfoWindowProps = {
 export function AlertInfoWindow({ alert, onClose }: AlertInfoWindowProps) {
   return (
     <InfoWindow position={alert.position} onCloseClick={onClose}>
-      <div>
-        <h3>Alerta</h3>
-        <p>
-          <strong>Data:</strong> {alert.date}
+      <div className="p-3" style={{ minWidth: "250px" }}>
+        <h5 className="mb-3 text-warning">⚠️ Alerta</h5>
+        <p className="mb-1">
+          <strong>Data:</strong>{" "}
+          <span className="text-muted">{alert.date}</span>
         </p>
         <p>
-          <strong>Descrição:</strong> {alert.description}
+          <strong>Descrição:</strong>{" "}
+          <span className="text-secondary">{alert.description}</span>
         </p>
       </div>
     </InfoWindow>

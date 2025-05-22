@@ -1,7 +1,6 @@
 import React from "react";
 import type { Alert } from "../types/Alert";
 
-
 type AlertFormProps = {
   alert: Partial<Alert>;
   onChange: (alert: Partial<Alert>) => void;
@@ -9,42 +8,51 @@ type AlertFormProps = {
   onCancel: () => void;
 };
 
-export function AlertForm({ alert, onChange, onSubmit, onCancel }: AlertFormProps) {
+export function AlertForm({
+  alert,
+  onChange,
+  onSubmit,
+  onCancel,
+}: AlertFormProps) {
   return (
     <div
-      style={{
-        position: "absolute",
-        top: 20,
-        left: 300,
-        background: "#fff",
-        padding: 20,
-        boxShadow: "0 0 10px rgba(0,0,0,0.3)",
-        zIndex: 1000,
-      }}
+      className="position-absolute bg-white p-4 shadow"
+      style={{ top: 20, left: 300, zIndex: 1000, minWidth: 320 }}
     >
-      <h2>Novo Alerta</h2>
+      <h2 className="mb-4">Novo Alerta</h2>
       <form onSubmit={onSubmit}>
-        <div>
-          <label>Data do Ocorrido:</label>
-          <br />
+        <div className="mb-3">
+          <label htmlFor="dateInput" className="form-label">
+            Data do Ocorrido:
+          </label>
           <input
+            id="dateInput"
             type="date"
+            className="form-control"
             value={alert.date || ""}
             onChange={(e) => onChange({ ...alert, date: e.target.value })}
             required
           />
         </div>
-        <div>
-          <label>Descrição:</label>
-          <br />
+        <div className="mb-3">
+          <label htmlFor="descriptionInput" className="form-label">
+            Descrição:
+          </label>
           <textarea
+            id="descriptionInput"
+            className="form-control"
+            rows={4}
             value={alert.description || ""}
-            onChange={(e) => onChange({ ...alert, description: e.target.value })}
+            onChange={(e) =>
+              onChange({ ...alert, description: e.target.value })
+            }
             required
           />
         </div>
-        <button type="submit">Salvar</button>
-        <button type="button" onClick={onCancel}>
+        <button type="submit" className="btn btn-primary me-2">
+          Salvar
+        </button>
+        <button type="button" className="btn btn-secondary" onClick={onCancel}>
           Cancelar
         </button>
       </form>

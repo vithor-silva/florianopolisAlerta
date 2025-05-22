@@ -1,10 +1,9 @@
-import Map from "./components/Map";
+import MapPage from "./pages/Map";
 
 function App() {
   return (
     <>
-      <h1>Innitial commit</h1>
-      <Map />
+      <MapPage />
     </>
   );
 }
